@@ -55,7 +55,29 @@ function gradeQuiz(candidateAnswers) {
     console.log();
   }
 
-  let grade;
+  let corrAns = 0;
+
+  for (i = 0; i < questions.length; i++)
+  {
+    if (candidateAnswers[i].toUpperCase() == correctAnswers[i].toUpperCase())
+    {
+      corrAns++;
+    }
+  }
+
+  let grade = (corrAns / questions.length) * 100;
+
+  console.log(">>> Overall Grade: " + grade + "% (" + corrAns + " of 5 responses correct) <<<")
+
+  console.log();
+
+  if (grade >= 80)
+  {
+    console.log(">>> Status: PASSED <<<")
+  } else {
+    console.log(">>> Status: FAILED <<<")
+  }
+
 
   return grade;
 }
